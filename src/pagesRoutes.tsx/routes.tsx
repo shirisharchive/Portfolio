@@ -1,6 +1,5 @@
 import AboutMe from "../pages/AboutMe";
 import ContactMe from "../pages/contact";
-import MyProjects from "../pages/projects";
 import MySkills from "../pages/skills";
 import Layout from "../Layout/layout";
 //I will import layout outlet here.
@@ -21,10 +20,6 @@ const PageRoutes = [
       {
         path: "skills",
         element: <MySkills />,
-      },
-      {
-        path: "projects",
-        element: <MyProjects />,
       },
     ],
   },

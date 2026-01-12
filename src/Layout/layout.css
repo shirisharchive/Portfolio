@@ -1,0 +1,29 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 70px; /* Space for fixed navbar */
+}
+
+#layout {
+  width: 100%;
+}
+
+#layout > div:nth-child(2) {
+  flex: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .layout {
+    min-height: auto;
+    padding-top: 130px; /* More space for wrapped navbar on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .layout {
+    min-height: auto;
+    padding-top: 120px;
+  }
+}

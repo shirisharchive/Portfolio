@@ -1,3 +1,5 @@
+import "./skills.css";
+
 const MySkills = () => {
   return (
     <div className="skills-section">

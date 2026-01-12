@@ -4,9 +4,11 @@
 import * as yup from "yup";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import "./contact.css";
 
 interface IContactMe {
   mail: string;
+  message?: string;
 }
 
 // Define YUP schema for form validation
@@ -15,6 +17,7 @@ export const DTOContactMe = yup.object({
     .string()
     .email("Invalid email format")
     .required("Email is required"),
+  message: yup.string().optional(),
 });
 
 const ContactMe = () => {
@@ -24,7 +27,6 @@ const ContactMe = () => {
     formState: { errors },
   } = useForm<IContactMe>({
     resolver: yupResolver(DTOContactMe),
-    defaultValues: { mail: "" },
   });
 
   const onSubmit = (data: IContactMe) => {
@@ -35,11 +37,12 @@ const ContactMe = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="contact-me-page">
         <h1>Contact Me</h1>
+
         <Controller
           name="mail"
           control={control}
           render={({ field }) => (
-            <>
+            <div className="mb-4">
               <label htmlFor="mail" className="block mb-1 font-medium">
                 Email
               </label>
@@ -50,10 +53,39 @@ const ContactMe = () => {
                 {...field}
                 className="border rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
-              {errors.mail && <p>{errors.mail.message}</p>}
-            </>
+              {errors.mail && (
+                <p className="text-red-600 text-sm mt-1">
+                  {errors.mail.message}
+                </p>
+              )}
+            </div>
           )}
         />
+
+        <Controller
+          name="message"
+          control={control}
+          render={({ field }) => (
+            <div className="mb-4">
+              <label htmlFor="message" className="block mb-1 font-medium">
+                Message
+              </label>
+              <textarea
+                id="message"
+                placeholder="Enter your message"
+                {...field}
+                className="border rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+                rows={5}
+              />
+              {errors.message && (
+                <p className="text-red-600 text-sm mt-1">
+                  {errors.message.message}
+                </p>
+              )}
+            </div>
+          )}
+        />
+
         <button
           type="submit"
           className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"

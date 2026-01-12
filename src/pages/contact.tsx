@@ -2,20 +2,23 @@
 //DTO using YUP
 //handle submit function
 import * as yup from "yup";
-import { Controller, useForm } from "react-hook-form";
+import { Controller, useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import "./contact.css";
 
+interface IContactMe {
+  mail: string;
+  message?: string;
+}
+
 // Define YUP schema for form validation
-export const DTOContactMe = yup.object({
+export const DTOContactMe: yup.ObjectSchema<IContactMe> = yup.object({
   mail: yup
     .string()
     .email("Invalid email format")
     .required("Email is required"),
   message: yup.string().optional(),
 });
-
-type IContactMe = yup.InferType<typeof DTOContactMe>;
 
 const ContactMe = () => {
   const {
@@ -26,7 +29,7 @@ const ContactMe = () => {
     resolver: yupResolver(DTOContactMe),
   });
 
-  const onSubmit = (data: IContactMe) => {
+  const onSubmit: SubmitHandler<IContactMe> = (data) => {
     console.log("Form Data Submitted: ", data);
   };
 

@@ -6,11 +6,6 @@ import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import "./contact.css";
 
-interface IContactMe {
-  mail: string;
-  message?: string;
-}
-
 // Define YUP schema for form validation
 export const DTOContactMe = yup.object({
   mail: yup
@@ -19,6 +14,8 @@ export const DTOContactMe = yup.object({
     .required("Email is required"),
   message: yup.string().optional(),
 });
+
+type IContactMe = yup.InferType<typeof DTOContactMe>;
 
 const ContactMe = () => {
   const {

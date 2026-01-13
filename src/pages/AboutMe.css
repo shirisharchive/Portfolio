@@ -1,0 +1,316 @@
+.AboutMePage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: #ffffff;
+}
+
+.aboutme-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.aboutme-content {
+  flex: 1;
+  text-align: left;
+}
+
+#Hello {
+  font-size: 30px;
+  background: linear-gradient(90deg, #ff6b6b 0%, #ee5a6f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+#name {
+  font-size: 156px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 20px 0;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+#description {
+  font-size: 26px;
+  color: #555;
+  margin: 0 0 30px 0;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.aboutme-links {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+#linkedin,
+#github {
+  display: block;
+}
+
+#linkedin a,
+#github a {
+  display: inline-block;
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+#linkedin a:hover,
+#github a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+#photo-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-slider {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  border-radius: 35px;
+  object-fit: cover;
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%) border-box;
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+  transition: all 0.5s ease;
+}
+
+.image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 50px rgba(102, 126, 234, 0.4);
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  color: #667eea;
+  border: none;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.slider-btn:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.prev-btn {
+  left: -20px;
+}
+
+.next-btn {
+  right: -20px;
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  width: 30px;
+  border-radius: 6px;
+}
+
+.dot:hover {
+  background: #999;
+}
+
+#profile-photo {
+  display: block;
+  width: 150%;
+}
+
+/* Tablet Responsive (768px and below) */
+@media (max-width: 768px) {
+  .AboutMePage {
+    padding: 30px 15px;
+  }
+
+  .aboutme-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .aboutme-content {
+    text-align: center;
+  }
+
+  #name {
+    font-size: 42px;
+  }
+
+  #description {
+    font-size: 15px;
+  }
+
+  .aboutme-links {
+    justify-content: center;
+  }
+
+  #linkedin a,
+  #github a {
+    padding: 10px 25px;
+    font-size: 14px;
+  }
+
+  .image-slider {
+    max-width: 300px;
+  }
+
+  .image {
+    max-width: 300px;
+  }
+
+  .slider-btn {
+    font-size: 24px;
+    padding: 8px 12px;
+  }
+
+  .prev-btn {
+    left: -15px;
+  }
+
+  .next-btn {
+    right: -15px;
+  }
+}
+
+/* Mobile Responsive (480px and below) */
+@media (max-width: 480px) {
+  .AboutMePage {
+    padding: 20px 10px;
+    min-height: auto;
+  }
+
+  .aboutme-container {
+    gap: 25px;
+  }
+
+  .aboutme-content {
+    text-align: center;
+  }
+
+  #Hello {
+    font-size: 16px;
+  }
+
+  #name {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+
+  #description {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .aboutme-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #linkedin a,
+  #github a {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  .image-slider {
+    max-width: 250px;
+  }
+
+  .image {
+    max-width: 250px;
+    border: 6px solid transparent;
+  }
+
+  .slider-btn {
+    font-size: 20px;
+    padding: 6px 10px;
+  }
+
+  .prev-btn {
+    left: -10px;
+  }
+
+  .next-btn {
+    right: -10px;
+  }
+
+  .slider-dots {
+    bottom: -25px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .dot.active {
+    width: 20px;
+  }
+}

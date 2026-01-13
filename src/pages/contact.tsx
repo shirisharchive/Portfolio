@@ -2,7 +2,8 @@
 //DTO using YUP
 //handle submit function
 import * as yup from "yup";
-import { Controller, useForm, SubmitHandler } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
+import type { SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import "./contact.css";
 
